@@ -11,9 +11,20 @@ actor TopazioBank {
   //Debug.print(debug_show(id));
 
   //public << allow to call function without need to access actor first
-  public func topUpMoney(){
-    currentValue += 1;
+  public func topUpMoney(amount: Nat){
+    currentValue += amount;
     Debug.print(debug_show(currentValue));
   };
   //topUpMoney()
+
+  public func withdrawMoney(amount: Nat){
+    //declare tempValue to be Int for preventing mismatch data type
+    let tempValue: Int = currentValue - amount;
+    if (tempValue >=0){
+      currentValue -= amount;
+    Debug.print(debug_show(currentValue));
+    }else{ Debug.print("Your deposit is not enough")
+    };
+  }
+
 };
