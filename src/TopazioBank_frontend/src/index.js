@@ -1,7 +1,7 @@
 import { TopazioBank_backend } from "../../declarations/TopazioBank_backend";
 
 window.addEventListener("load",async ()=>{
-  var currentMoney = await TopazioBank_backend.checkBalance();
+  updateBalance()
   //rounding to 2 decimal points
   document.getElementById("value").innerText = Math.round(currentMoney*100)/100;
 }
@@ -38,3 +38,7 @@ async  function updateBalance(){
     var currentMoney = await TopazioBank_backend.checkBalance();
     document.getElementById("value").innerText = Math.round(currentMoney*100)/100;
   };
+
+
+
+  
