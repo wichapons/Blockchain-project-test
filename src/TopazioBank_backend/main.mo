@@ -12,9 +12,8 @@ actor TopazioBank {
 
   let id = 45641651465416541;
 
-  //Debug.print(debug_show(currentValue));
+  Debug.print(debug_show(currentValue));
   //Debug.print(debug_show(id));
-
   //public << allow to call function without need to access actor first
   public func topUpMoney(amount: Float){
     currentValue += amount;
@@ -47,6 +46,5 @@ actor TopazioBank {
     currentValue := currentValue*(1.01**Float.fromInt(periodS));
     startTime := currentTime;
   }
-
 };
 
