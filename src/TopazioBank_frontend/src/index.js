@@ -26,11 +26,15 @@ window.addEventListener("load",async ()=>{
     } else ( console.log("Please fill in your withdrawal amount")
       //window.alert("Please fill in your withdrawal amount")
       );
-
-    var currentMoney = await TopazioBank_backend.checkBalance();
-    document.getElementById("value").innerText = Math.round(currentMoney*100)/100;
+    await TopazioBank_backend.compound();
+    updateBalance();
 
     button.removeAttribute("disabled");
     document.getElementById("input-amount").value=("");
     document.getElementById("withdrawal-amount").value=("");
   });
+
+async  function updateBalance(){
+    var currentMoney = await TopazioBank_backend.checkBalance();
+    document.getElementById("value").innerText = Math.round(currentMoney*100)/100;
+  };
