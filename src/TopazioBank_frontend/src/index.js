@@ -17,11 +17,15 @@ window.addEventListener("load",async ()=>{
 
     if (document.getElementById("input-amount").value.length != 0){
       await TopazioBank_backend.topUpMoney(depositAmount);
-    } else (window.alert("Please fill in your deposit amount"));
+    } else (console.log("Please fill in your deposit amount")
+      //window.alert("Please fill in your deposit amount")
+      );
     
     if(document.getElementById("withdrawal-amount").value.length != 0){
-      await TopazioBank_backend.topUpMoney(withdrawAmount);
-    } else (window.alert("Please fill in your withdrawal amount"));
+      await TopazioBank_backend.withdrawMoney(withdrawAmount);
+    } else ( console.log("Please fill in your withdrawal amount")
+      //window.alert("Please fill in your withdrawal amount")
+      );
 
     var currentMoney = await TopazioBank_backend.checkBalance();
     document.getElementById("value").innerText = Math.round(currentMoney*100)/100;
